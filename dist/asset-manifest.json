@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/static/css/main.0445abe6.chunk.css",
+    "main.js": "/static/js/main.d7cee754.chunk.js",
+    "main.js.map": "/static/js/main.d7cee754.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.015de10e.js",
+    "runtime-main.js.map": "/static/js/runtime-main.015de10e.js.map",
+    "static/css/2.112d2299.chunk.css": "/static/css/2.112d2299.chunk.css",
+    "static/js/2.87bda6bb.chunk.js": "/static/js/2.87bda6bb.chunk.js",
+    "static/js/2.87bda6bb.chunk.js.map": "/static/js/2.87bda6bb.chunk.js.map",
+    "static/js/3.c02e3700.chunk.js": "/static/js/3.c02e3700.chunk.js",
+    "static/js/3.c02e3700.chunk.js.map": "/static/js/3.c02e3700.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/2.112d2299.chunk.css.map": "/static/css/2.112d2299.chunk.css.map",
+    "static/css/main.0445abe6.chunk.css.map": "/static/css/main.0445abe6.chunk.css.map",
+    "static/js/2.87bda6bb.chunk.js.LICENSE.txt": "/static/js/2.87bda6bb.chunk.js.LICENSE.txt",
+    "static/media/weather-icons.css": "/static/media/weathericons-regular-webfont.e4d2c00e.woff"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.015de10e.js",
+    "static/css/2.112d2299.chunk.css",
+    "static/js/2.87bda6bb.chunk.js",
+    "static/css/main.0445abe6.chunk.css",
+    "static/js/main.d7cee754.chunk.js"
+  ]
+}
