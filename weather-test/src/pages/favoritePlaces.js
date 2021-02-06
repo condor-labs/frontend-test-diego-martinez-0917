@@ -3,7 +3,7 @@ import swal from 'sweetalert'
 import { getValues } from '../utils/httpRequest';
 import { Badge } from '../components/Badge/badge';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faMapMarkedAlt } from '@fortawesome/free-solid-svg-icons';
+import { faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
 import 'weather-icons/css/weather-icons.css';
 
 export default function FavoritePlaces() {
@@ -16,32 +16,33 @@ export default function FavoritePlaces() {
         .then(response=>{
             setVenues(response.data.places.filter((place) => place.main_headquarter === false))
             setLoading(false)
-            })
+        })
         .catch(error=>
             swal("error", `${error.message}`, "error")
-            )
+        )
     },[])
 
     return(
         <section
          id='widget-favorite'
-         className='widget-favorite '>
+         className='widget-favorite'>
             <h2 className='title-section'> Our favorite <span>places</span></h2>
             <div className='favorite-list'>
              {!loading &&
                 venues.map((seat) => (                    
                     <div className='widget-card' key={seat.id} >
-                        <i className={`wi wi-day-${seat.weather[0].icon} widget-icon`} style={{ fontSize: '60px', color:'yellow' }}/>               
-                        <div className='widget-card-wrapper'>
+                        <div className='container-card'>
+                            <i className={`wi wi-day-${seat.weather[0].icon} widget-icon`}/>               
+                            <div className='widget-card-wrapper'>
                             <div className='widget-card-image'>
                                 <img src={seat.image} alt='city' />
                             </div>
                             <div className='content'>
-                                <div className={`purple-background widget-headquarter-content`}>
-                                    {seat.icon && <FontAwesomeIcon icon={faMapMarkedAlt}/>}
-                                    <p className={`widget-headquarter-name `}>{seat.name}</p>
+                                <div className='headquarter-content'>
+                                    <FontAwesomeIcon  className='headquarter-icon' icon={faMapMarkerAlt}/>
+                                    <p className='widget-headquarter-name'>{seat.name} - {seat.sys.country}</p>
                                 </div>                          
-                                <p className='widget-headquarter-desc'>{seat.description}</p>
+                                <p className='headquarter-desc'>{seat.description}</p>
                                 <div className='badges'>
                                     <Badge
                                         className='widget-temperature'
@@ -57,6 +58,7 @@ export default function FavoritePlaces() {
                                         color={'blue'}/>
                                 </div>
                             </div>
+                        </div>
                         </div>
                   </div>
                 ))}

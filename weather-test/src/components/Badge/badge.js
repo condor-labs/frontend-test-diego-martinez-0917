@@ -6,7 +6,7 @@ import './badge.scss';
 export const Badge = ({ title, color, className }) => {
   return (
     <p className='badge'>
-      <FontAwesomeIcon icon={faCircle} color={color}/>
+      <FontAwesomeIcon className='circle-badge' icon={faCircle} color={color}/>
       <span className={className}>{title}</span>
     </p>
   );

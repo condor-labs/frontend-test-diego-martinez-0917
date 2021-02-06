@@ -1,6 +1,7 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 import React, { useEffect, useState } from 'react';
 import swal from 'sweetalert'
+import { Badge } from '../components/Badge/badge';
 import { getValues } from '../utils/httpRequest';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft,faArrowRight } from '@fortawesome/free-solid-svg-icons';
@@ -40,10 +41,16 @@ export default function Slider(){
         return (
           <div className='widget-carousel-item'>
             <p className='widget-day'>{getDay(date)}</p>
-            <p>{Math.round(temp - 273.15)} °C</p>
-            <div className='badges'>
-              <samp>{humidity} %</samp>
-              <samp>{windSpeed} m/s</samp>
+            <p className='temp-title'>{Math.round(temp - 273.15)} °C</p>
+            <div className='badges-content'>
+                <Badge
+                className='badge-humidity'
+                title={`${humidity} %`}
+                color={'pink'}/>
+                <Badge
+                className='badge-wind'
+                title={`${windSpeed} m/s`}
+                color={'blue'}/>
             </div>
           </div>
         );
@@ -70,23 +77,21 @@ export default function Slider(){
     }
 
     return(
-        <section
-         id='widget-carousel'
-         className='widget-carousel'>
-            <div className='widget-carousel-header'>
-                <h3 className='widget-carousel-header-title'>Forecast Extended</h3>
+        <section id='widget-carousel' className='widget-carousel'>
+            <div className='carousel-header'>
+                <h3 className='carousel-header-title'>Forecast Extended</h3>
                 <div className='wrapper-button'>
                     <button className='arrow-button' onClick={()=>change('left')} disabled={slider.current===0}>
-                        <FontAwesomeIcon icon={faArrowLeft} color="blue"/>
+                        <FontAwesomeIcon icon={faArrowLeft}/>
                     </button>
                     <button className='arrow-button' onClick={()=>change('right')} disabled={slider.current===3}>
-                        <FontAwesomeIcon icon={faArrowRight} color="blue"/>
+                        <FontAwesomeIcon icon={faArrowRight}/>
                     </button>
                 </div>
             </div>
             <div className='list-items'>
                 {!loading &&
-                sliderData
+                    sliderData
                     .slice(slider.current, slider.next)
                     .map((item, index) => (
                         <CarouselItem
@@ -95,7 +100,8 @@ export default function Slider(){
                             temp={item.main.temp}
                             humidity={item.main.humidity}
                             windSpeed={item.wind.speed}/>
-                    ))}
+                    ))
+                }
             </div>
         </section>
     )
